@@ -39,7 +39,15 @@ def long_func():
         s += i ** 9
     return s
 
+@performance
+def long_func2():
+    s = 0
+    for i in list(range(10000000)):
+        s += i ** 9
+    return s
+
 long_func()
+long_func2()
 
 ## 
 
