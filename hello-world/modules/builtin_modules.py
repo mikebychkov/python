@@ -21,3 +21,15 @@ print(dir(sys))
 
 print(sys.argv)
 print(len(sys.argv))
+
+
+### Pyhon Package Index - PyPI
+
+# https://pypi.org/
+
+# pip install <package-name>
+
+
+### Virtual Environments
+
+# https://pypi.org/project/pipenv/
