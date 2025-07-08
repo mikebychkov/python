@@ -1,6 +1,9 @@
-import re
-import sys
 
+import re
+
+file_name = ""
+
+### READ + RegEx
 
 def extract_basic_auth_tokens(log_file_path):
 
@@ -17,22 +20,25 @@ def extract_basic_auth_tokens(log_file_path):
 
     return rsl
 
+##
 
-def get_file_name():
-    if len(sys.argv) > 1:
-        return sys.argv[1]
-    return None
-
-
-def main():
-    file_name = get_file_name()
-    if not file_name:
-        return
-    tokens = extract_basic_auth_tokens(file_name)
-    print("Found Basic Auth tokens:")
-    for token in tokens:
-        print(token)
+file = open(file_name, "r")
+file.read()
+file.readline()
+file.readlines()
 
 
-if __name__ == "__main__":
-    main()
+### WRITE
+
+file = open(file_name, "w")
+file = open(file_name, "r+") # read+write
+file = open(file_name, "a") # append mode
+
+file.write("qwas")
+
+
+### WORKING WITH PATH'S
+
+from pathlib import Path
+
+
