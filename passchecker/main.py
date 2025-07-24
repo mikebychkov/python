@@ -1,7 +1,9 @@
+from typeguard import typechecked
 import requests
 import hashlib
 import sys
 
+@typechecked
 def sha1_hash(text: str) -> str:
     sha1 = hashlib.sha1(text.encode('utf-8'))
     return sha1.hexdigest().upper()
@@ -24,3 +26,5 @@ for sh in res.iter_lines():
     if chstr == tail:
         print('RESULT:\n', shs)
 
+# not_str = 123
+# print(sha1_hash(not_str)) # TypeCheckError
