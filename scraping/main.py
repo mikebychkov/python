@@ -1,4 +1,3 @@
-from sys import warnoptions
 import requests
 import pprint
 from bs4 import BeautifulSoup
