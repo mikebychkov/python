@@ -3,21 +3,25 @@ from flask import Flask, render_template, url_for
 app = Flask(__name__)
 
 @app.route('/')
-def hello():
-    return '<p>Hello World!11</p>'
+def index():
+    return render_template('index.html')
 
-@app.route('/<string:name>', methods = ['POST'])
-def hello_name(name):
-    return f'<p>Hello {name}!</p>'
+@app.route('/index')
+def home():
+    return render_template('index.html')
 
-@app.route('/app')
-def app_route():
-    args = { 'name': 'Anonymous', 'id': 'Unknown' }
-    return render_template('index.html', **args)
+@app.route('/works')
+def works():
+    return render_template('works.html')
 
-# <type:var> - string,path,uuid,int,float
+@app.route('/work')
+def work():
+    return render_template('work.html')
 
-@app.route('/app/<string:name>/<int:id>')
-def app_route_name(**args):
-    return render_template('index.html', **args)
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
