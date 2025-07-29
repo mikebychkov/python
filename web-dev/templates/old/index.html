@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Example Page</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="title">Welcome to My Page</h1>
+    <nav class="navigation">
+      <ul>
+        <li><a class="nav-link" href="#">Home</a></li>
+        <li><a class="nav-link" href="#">About</a></li>
+        <li><a class="nav-link" href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <section class="card">
+        <h2 class="card-title">Hello, {{ name }}! ID: {{ id }}</h2>
+      <p class="card-text">This is some example content inside a card component.</p>
+      <button class="btn-primary" id="alertButton">Click Me</button>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 My Website</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
