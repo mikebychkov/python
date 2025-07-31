@@ -1,4 +1,5 @@
 from flask import Flask, render_template, url_for, request
+import csv
 
 app = Flask(__name__)
 
@@ -33,5 +34,16 @@ def html_page(page_name):
 @app.route('/contact_submit', methods = ['POST'])
 def contact():
     form_data = request.form.to_dict()
-    print(form_data)
+    write_to_file(form_data)
     return render_template('thankyou.html')
+
+def write_to_file(form_data):
+    print(form_data)
+    with open('database.csv', 'a', newline='') as file:
+        email = form_data['email']
+        subject = form_data['subject']
+        message = form_data['message']
+        # s = '{},{},{}'.format(email, subject, message)
+        # file.write(s)
+        csv_writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        csv_writer.writerow([email, subject, message])
